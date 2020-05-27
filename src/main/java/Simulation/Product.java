@@ -23,8 +23,8 @@ class Product
 		times = new ArrayList<>();
 		events = new ArrayList<>();
 		stations = new ArrayList<>();
-	}
-	
+		
+	}	
 	
 	public void stamp(double time,String event,String station)
 	{
@@ -47,6 +47,8 @@ class Product
 	{
 		return stations;
 	}
+	
+	
 	
 	public double[] getTimesAsArray()
 	{

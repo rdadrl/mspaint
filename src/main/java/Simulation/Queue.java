@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class Queue implements ProductAcceptor
 {
 	/** List in which the products are kept */
-	private ArrayList<Product> row;
+	protected ArrayList<Product> row;
 	/** Requests from machine that will be handling the products */
-	private ArrayList<Machine> requests;
+	protected ArrayList<Machine> requests;
 	
 	/**
 	*	Initializes the queue and introduces a dummy machine
@@ -71,5 +71,21 @@ public class Queue implements ProductAcceptor
 				row.add(p); // Otherwise store it
 		}
 		return true;
+	}
+	
+	public int getQueueSize() {
+		return row.size();
+	}
+
+	@Override
+	public boolean giveProductCons(Product p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean giveProductCorp(Product p) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

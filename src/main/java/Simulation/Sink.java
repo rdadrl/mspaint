@@ -88,4 +88,16 @@ public class Sink implements ProductAcceptor
 		tmp = stations.toArray(tmp);
 		return tmp;
 	}
+
+	@Override
+	public boolean giveProductCons(Product p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean giveProductCorp(Product p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

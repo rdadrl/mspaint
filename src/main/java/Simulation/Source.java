@@ -10,17 +10,17 @@ package Simulation;
 public class Source implements CProcess
 {
 	/** Eventlist that will be requested to construct events */
-	private CEventList list;
+	protected CEventList list;
 	/** Queue that buffers products for the machine */
-	private ProductAcceptor queue;
+	protected ProductAcceptor queue;
 	/** Name of the source */
-	private String name;
+	protected String name;
 	/** Mean interarrival time */
-	private double meanArrTime;
+	protected double meanArrTime;
 	/** Interarrival times (in case pre-specified) */
-	private double[] interarrivalTimes;
+	protected double[] interarrivalTimes;
 	/** Interarrival time iterator */
-	private int interArrCnt;
+	protected int interArrCnt;
 
 	/**
 	*	Constructor, creates objects
@@ -77,11 +77,11 @@ public class Source implements CProcess
 		list.add(this,0,interarrivalTimes[0]); //target,type,time
 	}
 	
-        @Override
+        
 	public void execute(int type, double tme)
 	{
 		// show arrival
-		System.out.println("Arrival at time = " + tme);
+		System.out.println("Arrival at time = " + tme + " from " + name);
 		// give arrived product to queue
 		Product p = new Product();
 		p.stamp(tme,"Creation",name);
