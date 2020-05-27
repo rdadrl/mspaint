@@ -66,6 +66,8 @@ public class CallCenterQueue extends Queue {
 		// Check if the machine accepts it
 				if(consRequests.size()<1) {
 					row.add(p); // Otherwise store it
+					System.out.println("Queue size = " + (getQueueSize()));
+
 				}
 				else
 				{
@@ -78,8 +80,11 @@ public class CallCenterQueue extends Queue {
 					}
 					
 					
-					if(!delivered)
+					if(!delivered) {
 						row.add(p); // Otherwise store it
+						System.out.println("Queue size = " + (getQueueSize()));
+
+					}
 				}
 				return true;
 	}
@@ -88,8 +93,12 @@ public class CallCenterQueue extends Queue {
 	{
 		printRequests();
 		// Check if the machine accepts it
-				if(corpRequests.size()<1)
+				if(corpRequests.size()<1) {
+					//if no corporate requests
 					row.add(p); // Otherwise store it
+					System.out.println("Queue size = " + (getQueueSize()));
+
+				}
 				else
 				{
 					boolean delivered = false;
@@ -99,8 +108,10 @@ public class CallCenterQueue extends Queue {
 						// remove the request regardless of whether or not the product has been accepted
 						corpRequests.remove(0);
 					}
-					if(!delivered)
+					if(!delivered) {
 						row.add(p); // Otherwise store it
+						System.out.println("Queue size = " + (getQueueSize()));
+					}
 				}
 				return true;
 	}
@@ -136,6 +147,18 @@ public class CallCenterQueue extends Queue {
 					return false; // queue request
 				}
 			}
+	
+	public ArrayList getCorpRequests() {
+		return corpRequests;
+	}
+	
+	public ArrayList getConsRequests() {
+		return consRequests;
+	}
+	
+	public int getK() {
+		return k;
+	}
 	
 
 }

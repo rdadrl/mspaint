@@ -24,8 +24,8 @@ public class Simulation {
 	// A queue for the machine
 	CallCenterQueue q = new CallCenterQueue(2);
 	// A source
-	SourceCons s1 = new SourceCons(q,l,"SourceCons 1", 50);
-	SourceCorp s2 = new SourceCorp(q,l,"SourceCorp 2", 50);
+	SourceCons s1 = new SourceCons(q,l,"SourceCons 1", 20);
+	SourceCorp s2 = new SourceCorp(q,l,"SourceCorp 2", 20);
 //	Source s1 = new Source(q,l,"Source 1");
 //	Source s2 = new Source(q,l,"Source 2");
 
@@ -34,7 +34,7 @@ public class Simulation {
 	Sink si = new Sink("Sink 1");
 	// A machine
 	CSACons m1 = new CSACons(q,si,l,"Cons CSA 1");
-	CSACons m2 = new CSACons(q,si,l,"Cons CSA 2");
+//	CSACons m2 = new CSACons(q,si,l,"Cons CSA 2");
 	CSACorp m3 = new CSACorp(q,si,l,"Corp CSA 3");
 	CSACorp m4 = new CSACorp(q,si,l,"Corp CSA 4");
 	CSACorp m5 = new CSACorp(q,si,l,"Corp CSA 5");
@@ -42,7 +42,7 @@ public class Simulation {
 
 
 	// start the eventlist
-	l.start(2000); // 2000 is maximum time
+	l.start(300); // 2000 is maximum time
     }
     
 }

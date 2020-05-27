@@ -88,4 +88,22 @@ public class Queue implements ProductAcceptor
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public ArrayList getCorpRequests() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList getConsRequests() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getK() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

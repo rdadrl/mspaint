@@ -27,10 +27,10 @@ public class CSACons extends Machine {
 			product=p;
 			// mark starting time
 			product.stamp(eventlist.getTime(),"Production started",name);
-			System.out.println("Product " + (product.getTimes()).get(0) + ": production started in " + name);
-			if(queue.getQueueSize() > 0){
-				System.out.println("Queue size = " + (queue.getQueueSize()-1));
-			}
+//			System.out.println("Product " + (product.getTimes()).get(0) + ": production started in " + name);
+//			if(queue.getQueueSize() > 0){
+//				System.out.println("Queue size = " + (queue.getQueueSize()-1));
+//			}
 			// start production
 			startProduction();
 			// Flag that the product has arrived
@@ -49,7 +49,7 @@ public class CSACons extends Machine {
 	public void execute(int type, double tme)
 	{
 		// show arrival
-		System.out.println("Product " +(product.getTimes()).get(0) + ": finished at time = " + tme + " in " + name);
+		System.out.println(product.getStations().get(0) + " ----> Product " +(product.getTimes()).get(0) + " ----> " + name + " ----> finished at time = " + tme);
 		// Remove product from system
 		product.stamp(tme, "Production complete", name);
 		sink.giveProduct(product);

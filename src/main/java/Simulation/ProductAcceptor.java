@@ -1,5 +1,7 @@
 package Simulation;
 
+import java.util.ArrayList;
+
 /**
  *	Blueprint for accepting products
  *	Classes that implement this interface can accept products
@@ -18,4 +20,10 @@ public interface ProductAcceptor
 	public boolean giveProductCons(Product p);
 
 	public boolean giveProductCorp(Product p);
+
+	public ArrayList getCorpRequests();
+
+	public ArrayList getConsRequests();
+
+	public int getK();
 }

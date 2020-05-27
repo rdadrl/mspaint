@@ -24,7 +24,12 @@ public class SourceCons extends Source{
 		// give arrived product to queue
 		Cons p = new Cons();
 		p.stamp(tme,"Creation",name);
-		queue.giveProductCons(p);
+		if(queue.getConsRequests().size() < 1 & queue.getCorpRequests().size() > queue.getK()) {
+			queue.giveProductCorp(p);
+		}
+		else {
+			queue.giveProductCons(p);
+		}
 		// generate duration
 		if(meanArrTime>0)
 		{

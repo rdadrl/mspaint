@@ -1,6 +1,6 @@
 package Simulation;
 
-
+import java.util.ArrayList;
 
 /**
  *	Machine in a factory
@@ -185,6 +185,24 @@ public class Machine implements CProcess,ProductAcceptor
 	public boolean giveProductCorp(Product p) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public ArrayList getCorpRequests() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList getConsRequests() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getK() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	
