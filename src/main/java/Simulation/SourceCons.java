@@ -1,5 +1,7 @@
 package Simulation;
 
+import java.util.ArrayList;
+
 public class SourceCons extends Source{
 	
 	
@@ -24,10 +26,20 @@ public class SourceCons extends Source{
 		// give arrived product to queue
 		Cons p = new Cons();
 		p.stamp(tme,"Creation",name);
+		ArrayList<Machine> corpreqs = queue.getCorpRequests();
+		for(Machine m:corpreqs) {
+			System.out.println(m.name);
+		}
+		ArrayList<Machine> consreqs = queue.getConsRequests();
+		for(Machine m:consreqs) {
+			System.out.println(m.name);
+		}
 		if(queue.getConsRequests().size() < 1 & queue.getCorpRequests().size() > queue.getK()) {
+			System.out.println("All consumer CSAs are busy, and there are more than k corporate CSAs available");
 			queue.giveProductCorp(p);
 		}
 		else {
+			System.out.println("Sent to either be queued or be carried out by CSA cons");
 			queue.giveProductCons(p);
 		}
 		// generate duration

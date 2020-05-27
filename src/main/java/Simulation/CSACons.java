@@ -21,13 +21,13 @@ public class CSACons extends Machine {
 	public boolean giveProduct(Product p)
 	{
 		// Only accept something if the machine is idle
-		if(status=='i')
+		if(status=='i' & !(p instanceof Corp))
 		{
 			// accept the product
 			product=p;
 			// mark starting time
 			product.stamp(eventlist.getTime(),"Production started",name);
-//			System.out.println("Product " + (product.getTimes()).get(0) + ": production started in " + name);
+			System.out.println("Product " + (product.getTimes()).get(0) + ": production started in " + name);
 //			if(queue.getQueueSize() > 0){
 //				System.out.println("Queue size = " + (queue.getQueueSize()-1));
 //			}

@@ -27,7 +27,7 @@ public class CSACorp extends Machine {
 			product=p;
 			// mark starting time
 			product.stamp(eventlist.getTime(),"Production started",name);
-//			System.out.println("product " + (product.getTimes()).get(0) + ": production started in " + name);
+			System.out.println("product " + (product.getTimes()).get(0) + ": production started in " + name);
 			if(queue.getQueueSize() > 0){
 //				System.out.println("Queue size = " + (queue.getQueueSize()-1));
 			}			// start production

@@ -1,5 +1,7 @@
 package Simulation;
 
+import java.util.ArrayList;
+
 public class SourceCorp extends Source{
 	
 	
@@ -24,7 +26,18 @@ public class SourceCorp extends Source{
 		// give arrived product to queue
 		Corp p = new Corp();
 		p.stamp(tme,"Creation",name);
+		System.out.println("Sent to be queued or carried out by CSA corp");
+		ArrayList<Machine> corpreqs = queue.getCorpRequests();
+		for(Machine m:corpreqs) {
+			System.out.println(m.name);
+		}
+		ArrayList<Machine> consreqs = queue.getConsRequests();
+		for(Machine m:consreqs) {
+			System.out.println(m.name);
+		}
+		
 		queue.giveProductCorp(p);
+		
 		// generate duration
 		if(meanArrTime>0)
 		{
