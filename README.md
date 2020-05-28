@@ -1,4 +1,4 @@
-## MSP aint do shit
+## MSPaint: An analysis of telecommunications queue management system
 Given a 24/7 call center of a telco. This telco distinguishes two types of customers: corporate users and consumers. The telco makes more money out of corporate users, hence provides them with more service, but cannot disregard consumers, since that might hurt its reputation.
 
 It has two types of Customer Service Agents (CSA): CSA corporate and CSA consumer. CSA corporate can handle corporate customers and consumers. But CSA consumers can only handle consumers. However, the total costs of a single CSA corporate is €60 per hour and the costs of a single CSA consumer is €35 per hour.
