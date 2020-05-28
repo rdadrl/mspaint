@@ -123,7 +123,11 @@ public class CallCenterQueue extends Queue {
 	@Override
 	public boolean askProduct(Machine machine)
 	{
-		
+		System.out.println("shift " + machine.eventlist.getTime() + " " + machine.shiftStart + " " + machine.shiftEnd);
+//		if(machine.eventlist.getTime()<machine.shiftStart || machine.eventlist.getTime()>machine.shiftEnd) {
+//			System.out.println(machine.name + " not this shift yet");
+//			return false;
+//		}
 		// This is only possible with a non-empty queue
 				if(row.size()>0)
 				{

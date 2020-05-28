@@ -52,7 +52,13 @@ public class Sink implements ProductAcceptor
 		}
 		return true;
 	}
+        
+    public ArrayList getProducts()
+    {
+    	return products;
+    }
 	
+        
 	public int[] getNumbers()
 	{
 		numbers.trimToSize();

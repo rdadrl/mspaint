@@ -1,9 +1,16 @@
 package Simulation;
 
 public class CSACons extends Machine {
+	
+	
 
 	public CSACons(Queue q, ProductAcceptor s, CEventList e, String n) {
 		super(q, s, e, n);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public CSACons(Queue q, ProductAcceptor s, CEventList e, String n, double start, double end) {
+		super(q, s, e, n, start, end);
 		// TODO Auto-generated constructor stub
 	}
 

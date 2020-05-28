@@ -6,6 +6,11 @@ public class CSACorp extends Machine {
 		super(q, s, e, n);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public CSACorp(Queue q, ProductAcceptor s, CEventList e, String n, double start, double end) {
+		super(q, s, e, n, start, end);
+		// TODO Auto-generated constructor stub
+	}
 
 	public CSACorp(Queue q, ProductAcceptor s, CEventList e, String n, double m) {
 		super(q, s, e, n, m);
@@ -16,6 +21,8 @@ public class CSACorp extends Machine {
 		super(q, s, e, n, st);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	
 	@Override
 	public boolean giveProduct(Product p)

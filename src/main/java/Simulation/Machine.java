@@ -28,6 +28,8 @@ public class Machine implements CProcess,ProductAcceptor
 	/** Processing time iterator */
 	protected int procCnt;
 	
+	protected double shiftStart;
+	protected double shiftEnd;	
 
 	/**
 	*	Constructor
@@ -45,6 +47,19 @@ public class Machine implements CProcess,ProductAcceptor
 		eventlist=e;
 		name=n;
 		meanProcTime=30;
+		queue.askProduct(this);
+	}
+	
+	public Machine(Queue q, ProductAcceptor s, CEventList e, String n, double start, double end)
+	{
+		status='i';
+		queue=q;
+		sink=s;
+		eventlist=e;
+		name=n;
+		meanProcTime=30;
+		shiftStart = start;
+		shiftEnd = end;
 		queue.askProduct(this);
 	}
 
@@ -204,6 +219,7 @@ public class Machine implements CProcess,ProductAcceptor
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 	
 	
 }
