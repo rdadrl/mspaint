@@ -37,10 +37,10 @@ public class Simulation {
 //	CSACons m2 = new CSACons(q,si,l,"Cons CSA 2");
 	CSACorp m3 = new CSACorp(q,si,l,"Corp CSA 3");
 	CSACorp m4 = new CSACorp(q,si,l,"Corp CSA 4");
-	CSACorp m5 = new CSACorp(q,si,l,"Corp CSA 5");
-	CSACorp m6 = new CSACorp(q,si,l,"Corp CSA 6");
-	CSACorp m7 = new CSACorp(q,si,l,"Corp CSA 7");
-	CSACorp m8 = new CSACorp(q,si,l,"Corp CSA 8");
+	//CSACorp m5 = new CSACorp(q,si,l,"Corp CSA 5");
+	//CSACorp m6 = new CSACorp(q,si,l,"Corp CSA 6");
+	//CSACorp m7 = new CSACorp(q,si,l,"Corp CSA 7");
+	//CSACorp m8 = new CSACorp(q,si,l,"Corp CSA 8");
 
 
 
