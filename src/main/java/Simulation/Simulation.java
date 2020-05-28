@@ -45,7 +45,9 @@ public class Simulation {
 
 
 	// start the eventlist
-	l.start(300); // 2000 is maximum time
+	l.start(1440); // 2000 is maximum time
+
+    si.saveAsCSV();
     }
     
 }

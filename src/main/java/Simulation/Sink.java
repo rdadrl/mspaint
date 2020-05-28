@@ -1,5 +1,10 @@
 package Simulation;
 
+import com.opencsv.CSVWriter;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 /**
  *	A sink
@@ -118,4 +123,55 @@ public class Sink implements ProductAcceptor
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public void saveAsCSV() {
+        File file = new File(System.getProperty("user.dir") + "/results/result.csv");
+        try {
+            FileWriter outputfile = new FileWriter(file);
+            CSVWriter writer = new CSVWriter(outputfile);
+
+            String[] header = { "creation_time", "creation_station", "production_start_time", "production_start_station", "production_complete_time", "production_complete_station"};
+            writer.writeNext(header);
+
+            for (Product p : products) {
+                ArrayList<Double> times = p.getTimes();
+                ArrayList<String> stations = p.getStations();
+
+                String[] rowData = {Double.toString(times.get(0)), stations.get(0), Double.toString(times.get(1)), stations.get(1), Double.toString(times.get(2)), stations.get(2)};
+                writer.writeNext(rowData);
+            }
+            writer.close();
+        }
+        catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public String toString() {
+	    String result = "";
+        for (Product p : products) {
+            ArrayList<Double> times = p.getTimes();
+            ArrayList<String> events = p.getEvents();
+            ArrayList<String> stations = p.getStations();
+
+            String printString = "Product:{ times: {";
+
+            for (Double t : times) {
+                printString += "[" + t + "]";
+            }
+            printString += " }, events: {";
+            for (String e : events) {
+                printString += "[" + e + "]";
+            }
+            printString += " }, stations: {";
+            for (String s : stations) {
+                printString += "[" + s + "]";
+            }
+            printString += " }};";
+
+            result+= printString + "\n";
+        }
+        return result;
+    }
 }
