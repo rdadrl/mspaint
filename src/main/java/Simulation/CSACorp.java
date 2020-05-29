@@ -45,6 +45,41 @@ public class CSACorp extends Machine {
 		// Flag that the product has been rejected
 		else return false;
 	}
+
+	/**
+	 *	Starting routine for the production
+	 *	Start the handling of the current product with an exponentionally distributed processing time with average 30
+	 *	This time is placed in the eventlist
+	 */
+	@Override
+	public void startProduction()
+	{
+		// generate duration
+		if(meanProcTime>0)
+		{
+			double duration = Variates.NormalTruncated.drawRandomNormalVariate(1.2, 3.6, 0.75);
+			System.out.println("CSA Cons Duration:	" + duration);
+			// Create a new event in the eventlist
+			double tme = eventlist.getTime();
+			eventlist.add(this,0,tme+duration); //target,type,time
+			// set status to busy
+			status='b';
+		}
+		else
+		{
+			if(processingTimes.length>procCnt)
+			{
+				eventlist.add(this,0,eventlist.getTime()+processingTimes[procCnt]); //target,type,time
+				// set status to busy
+				status='b';
+				procCnt++;
+			}
+			else
+			{
+				eventlist.stop();
+			}
+		}
+	}
     
     /**
 	*	Method to have this object execute an event
