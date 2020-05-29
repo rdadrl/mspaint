@@ -1,5 +1,7 @@
 package Simulation;
 
+import Variates.Poisson;
+
 import java.util.ArrayList;
 
 public class SourceCons extends Source{
@@ -45,7 +47,8 @@ public class SourceCons extends Source{
 		// generate duration
 		if(meanArrTime>0)
 		{
-			double duration = drawRandomExponential(meanArrTime);
+			double duration = drawNonStationaryRandomExponential(meanArrTime, 2);
+			System.out.println("STUPID DURATION: " + duration);
 			// Create a new event in the eventlist
 			list.add(this,0,tme+duration); //target,type,time
 		}
@@ -62,5 +65,15 @@ public class SourceCons extends Source{
 			}
 		}
 	}
-	
+
+	private static double t = 0;
+	public static double drawNonStationaryRandomExponential(double mean, int rateMax) {
+		double uiidy = Math.random();
+
+		while (uiidy > Poisson.randomVariate(rateMax) / rateMax) {
+			t += drawRandomExponential(mean);
+			uiidy = Math.random();
+		}
+		return Poisson.randomVariate(t);
+	}
 }

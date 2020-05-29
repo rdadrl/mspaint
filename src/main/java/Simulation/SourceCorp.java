@@ -1,5 +1,7 @@
 package Simulation;
 
+import Variates.Poisson;
+
 import java.util.ArrayList;
 
 public class SourceCorp extends Source{
@@ -37,11 +39,16 @@ public class SourceCorp extends Source{
 		}
 		
 		queue.giveProductCorp(p);
-		
+
 		// generate duration
 		if(meanArrTime>0)
 		{
-			double duration = drawRandomExponential(meanArrTime);
+			double duration;
+			if (list.getTime() > 720)
+				duration = drawPoissonRandomExponential(20);
+			else
+				duration = drawPoissonRandomExponential(60);
+			//System.out.println("NEEDED LIKE " + drawRandomExponential(meanArrTime) + " WE HAD: " + duration);
 			// Create a new event in the eventlist
 			list.add(this,0,tme+duration); //target,type,time
 		}
@@ -57,5 +64,9 @@ public class SourceCorp extends Source{
 				list.stop();
 			}
 		}
+	}
+
+	public static double drawPoissonRandomExponential(double rate) {
+		return Poisson.randomVariate(rate);
 	}
 }
