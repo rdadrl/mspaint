@@ -7,6 +7,7 @@ public class CallCenterQueue extends Queue {
 	private ArrayList<Machine> consRequests;
 	private ArrayList<Machine> corpRequests;
 	private int k;
+	private ArrayList<Machine> offShift;
 
 	public CallCenterQueue() {
 		// TODO Auto-generated constructor stub
@@ -22,6 +23,7 @@ public class CallCenterQueue extends Queue {
 		consRequests = new ArrayList<>();
 		corpRequests = new ArrayList<>();
 		k = kvalue;
+		offShift = new ArrayList();
 	}
 	
 	public int getQueueSize() {
@@ -104,9 +106,11 @@ public class CallCenterQueue extends Queue {
 					boolean delivered = false;
 					while(!delivered & (corpRequests.size()>0))
 					{
+						if(p instanceof Corp || corpRequests.size()>k) {
 						delivered=corpRequests.get(0).giveProduct(p);
 						// remove the request regardless of whether or not the product has been accepted
 						corpRequests.remove(0);
+						}
 					}
 					if(!delivered) {
 						row.add(p); // Otherwise store it
@@ -124,10 +128,34 @@ public class CallCenterQueue extends Queue {
 	public boolean askProduct(Machine machine)
 	{
 		System.out.println("shift " + machine.eventlist.getTime() + " " + machine.shiftStart + " " + machine.shiftEnd);
-//		if(machine.eventlist.getTime()<machine.shiftStart || machine.eventlist.getTime()>machine.shiftEnd) {
-//			System.out.println(machine.name + " not this shift yet");
-//			return false;
-//		}
+		if(machine.eventlist.getTime()<machine.shiftStart) {
+			System.out.println(machine.name + " not this shift yet");
+			offShift.add(machine);
+			return false;
+		}
+		if(machine.eventlist.getTime()>machine.shiftEnd) {
+			System.out.println(machine.name + " This party's over");
+			offShift.remove(machine);
+			
+			for(int i = 0; i<offShift.size(); i++) {
+//				if(machine.eventlist.getTime()>offShift.get(i).shiftEnd) {
+//					offShift.remove(machine);
+//				}
+				if(machine.eventlist.getTime()>offShift.get(i).shiftStart) {
+					System.out.println(offShift.get(i).name + " is now on the clock");
+					if(offShift.get(i) instanceof CSACorp) {
+						corpRequests.add(offShift.get(i));
+					}
+					else if(offShift.get(i) instanceof CSACons) {
+						consRequests.add(offShift.get(i));
+
+					}
+				}
+				
+				
+			}
+			return false;
+		}
 		// This is only possible with a non-empty queue
 				if(row.size()>0)
 				{

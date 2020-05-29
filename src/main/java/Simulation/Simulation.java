@@ -36,14 +36,30 @@ public class Simulation {
 	Sink si = new Sink("Sink 1");
 	// Initialize the CSAs
 	ArrayList csas = new ArrayList();
-	CSACons m1 = new CSACons(q,si,l,"Cons CSA 1",0,500);
-	CSACons m2 = new CSACons(q,si,l,"Cons CSA 2",500,1440);
-	CSACorp m3 = new CSACorp(q,si,l,"Corp CSA 3",0,500);
-	CSACorp m4 = new CSACorp(q,si,l,"Corp CSA 4",0,500);
-	CSACorp m5 = new CSACorp(q,si,l,"Corp CSA 5",500,1440);
-	CSACorp m6 = new CSACorp(q,si,l,"Corp CSA 6",500,1440);
-	CSACorp m7 = new CSACorp(q,si,l,"Corp CSA 7",500,1440);
-	CSACorp m8 = new CSACorp(q,si,l,"Corp CSA 8",500,1440);
+	CSACorp m0 = new CSACorp(q,si,l,"Cons CSA 0",0,480);
+	CSACorp m1 = new CSACorp(q,si,l,"Cons CSA 1",0,480);
+	CSACorp m2 = new CSACorp(q,si,l,"Cons CSA 2",0,480);
+	CSACorp m3 = new CSACorp(q,si,l,"Corp CSA 3",0,480);
+	CSACorp m4 = new CSACorp(q,si,l,"Corp CSA 4",480,960);
+	CSACorp m5 = new CSACorp(q,si,l,"Corp CSA 5",480,960);
+	CSACorp m6 = new CSACorp(q,si,l,"Corp CSA 6",480,960);
+	CSACorp m7 = new CSACorp(q,si,l,"Corp CSA 7",960,1440);
+	CSACorp m8 = new CSACorp(q,si,l,"Corp CSA 8",960,1440);
+	CSACorp m9 = new CSACorp(q,si,l,"Cons CSA 9",960,1440);
+	
+	CSACons m10 = new CSACons(q,si,l,"Corp CSA 10",0,480);
+	CSACons m11 = new CSACons(q,si,l,"Corp CSA 11",0,480);
+	CSACons m12 = new CSACons(q,si,l,"Corp CSA 12",0,480);
+	CSACons m13 = new CSACons(q,si,l,"Corp CSA 13",0,480);
+	CSACons m14 = new CSACons(q,si,l,"Corp CSA 14",480,960);
+	CSACons m15 = new CSACons(q,si,l,"Corp CSA 15",480,960);
+	CSACons m16 = new CSACons(q,si,l,"Corp CSA 16",480,960);
+	CSACons m17 = new CSACons(q,si,l,"Corp CSA 17",960,1440);
+	CSACons m18 = new CSACons(q,si,l,"Corp CSA 18",960,1440);
+	CSACons m19 = new CSACons(q,si,l,"Corp CSA 19",960,1440);
+
+	csas.add(m0);
+
 	csas.add(m1);
 	csas.add(m2);
 	csas.add(m3);
@@ -52,6 +68,18 @@ public class Simulation {
 	csas.add(m6);
 	csas.add(m7);
 	csas.add(m8);
+	csas.add(m9);
+	
+	csas.add(m10);
+	csas.add(m11);
+	csas.add(m12);
+	csas.add(m13);
+	csas.add(m14);
+	csas.add(m15);
+	csas.add(m16);
+	csas.add(m17);
+	csas.add(m18);
+	csas.add(m19);
 	
 	//Calculate total cost of CSAs
 	double payment = 0;
